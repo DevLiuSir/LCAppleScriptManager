@@ -21,12 +21,7 @@ fileprivate func LCAppleScriptLocalizeString(_ key: String) -> String {
     return Bundle.module.localizedString(forKey: key, value: "", table: "LCAppleScriptManager")
     #else
     // 如果是通过 CocoaPods 使用
-    struct StaticBundle {
-        static let bundle: Bundle = {
-            return Bundle(for: LCAppleScriptManager.self)
-        }()
-    }
-    return StaticBundle.bundle.localizedString(forKey: key, value: "", table: "LCAppleScriptManager")
+    return Bundle(for: LCAppleScriptManager.self).localizedString(forKey: key, value: "", table: "LCAppleScriptManager")
     #endif
     
 }
